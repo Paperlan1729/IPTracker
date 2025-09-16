@@ -1,0 +1,3 @@
+visitors.db
+__pycache__/
+*.pyc

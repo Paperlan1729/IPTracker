@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IP Visitor Tracker</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        .card { background: #f4f4f4; padding: 20px; border-radius: 10px; display: inline-block; }
+        h2 { color: #333; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>🔍 Visitor Information</h2>
+        <p><b>Your IP:</b> {{ ip }}</p>
+        <p><b>Your Public IP (detected by browser):</b> <span id="public-ip">Loading…</span></p>
+        <p><b>Browser:</b> {{ browser }}</p>
+        <p><b>Location:</b> {{ city }}, {{ country }}</p>
+        <p><b>Number of Visits:</b> {{ visits }}</p>
+    </div>
+    <script>
+        (function() {
+            var el = document.getElementById('public-ip');
+            fetch('https://api.ipify.org?format=json', { cache: 'no-store' })
+                .then(function(r){ return r.json(); })
+                .then(function(d){ el.textContent = d.ip || 'Unknown'; })
+                .catch(function(){ el.textContent = 'Unknown'; });
+        })();
+    </script>
+</body>
+</html>

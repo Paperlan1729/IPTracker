@@ -1,6 +1,7 @@
 # IPtracker
 
 Simple Flask app that tracks visitors by IP, browser, geolocation (best effort), and visit count using SQLite.
+Made using Cursor Ai in 1-2 hours.
 
 ## Features
 - Records IP, browser, country, city, visit count, last visit time (UTC ISO)
